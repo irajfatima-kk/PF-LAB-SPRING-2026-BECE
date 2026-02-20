@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    int years;
+    float salary;
+    printf("Enter Years of Service: ");
+    scanf("%d", &years);
+    printf("Enter Salary: ");
+    scanf("%f", &salary);
+
+    float incentive = (years > 15) ? salary * 0.35 :
+                      (years > 7) ? salary * 0.20 :
+                                    salary * 0.05;
+    printf("Incentive: Rs. %.2f\n", incentive);
+    return 0;
+}
