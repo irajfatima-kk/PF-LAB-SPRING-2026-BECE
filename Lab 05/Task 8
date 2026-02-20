@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int choice, age;
+    float weight, height;
+    printf("Enter Choice (1=BMI, 2=BMR, 3=Ideal Weight, 4=Heart Rate Zone): ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1: // BMI
+            printf("Enter Weight (kg) and Height (m): ");
+            scanf("%f %f", &weight, &height);
+            if (weight > 0 && height > 0)
+                printf("BMI = %.2f\n", weight / pow(height, 2));
+            else
+                printf("Invalid Input\n");
+            break;
+        case 2: // BMR (Mifflin-St Jeor for simplicity)
+            printf("Enter Weight (kg), Height (cm), Age: ");
+            scanf("%f %f %d", &weight, &height, &age);
+            if (weight > 0 && height > 0 && age > 0)
+                printf("BMR = %.2f\n", 10*weight + 6.25*height - 5*age + 5);
+            else
+                printf("Invalid Input\n");
+            break;
+        case 3: // Ideal Weight (Devine Formula for men)
+            printf("Enter Height (cm): ");
+            scanf("%f", &height);
+            if (height > 0)
+                printf("Ideal Weight = %.2f kg\n", 50 + 2.3*((height/2.54)-60));
+            else
+                printf("Invalid Input\n");
+            break;
+        case 4: // Heart Rate Zone
+            printf("Enter Age: ");
+            scanf("%d", &age);
+            if (age > 0) {
+                int maxHR = 220 - age;
+                printf("Heart Rate Zone = %.0f - %.0f bpm\n", maxHR*0.5, maxHR*0.85);
+            } else
+                printf("Invalid Input\n");
+            break;
+        default:
+            printf("Invalid Choice\n");
+    }
+    return 0;
+}
