@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main() {
+    int seats = 40, booking;
+    while(seats > 0) {
+        printf("Enter 1 to book seat, 0 to stop: ");
+        scanf("%d", &booking);
+        if(booking == 0) break;
+        if(seats > 0) {
+            seats--;
+            printf("Seat booked! Remaining seats: %d\n", seats);
+        }
+    }
+    printf("Reservation closed.\n");
+    return 0;
+}
