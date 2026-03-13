@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int seats[5][6] = {
+        {1,0,1,0,1,0},
+        {0,0,1,1,0,0},
+        {1,1,1,0,0,0},
+        {0,1,0,1,1,0},
+        {1,0,0,0,1,1}
+    };
+
+    int available = 0, maxBooked = 0, rowIndex = -1;
+
+    for (int i = 0; i < 5; i++) {
+        int booked = 0;
+        for (int j = 0; j < 6; j++) {
+            if (seats[i][j] == 0) available++;
+            else booked++;
+        }
+        if (booked > maxBooked) {
+            maxBooked = booked;
+            rowIndex = i;
+        }
+    }
+
+    printf("Available seats = %d\n", available);
+    printf("Row with max booked seats = %d\n", rowIndex+1);
+
+    return 0;
+}
