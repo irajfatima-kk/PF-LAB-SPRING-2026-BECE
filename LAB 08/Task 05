@@ -1,0 +1,65 @@
+#include <stdio.h>
+
+int main() {
+    int rows, cols;
+    printf("Enter rows and columns (max 5): ");
+    scanf("%d %d", &rows, &cols);
+
+    int mat[5][5];
+    printf("Enter matrix elements:\n");
+    for(int i=0;i<rows;i++) {
+        for(int j=0;j<cols;j++) {
+            scanf("%d", &mat[i][j]);
+        }
+    }
+
+    
+    int isSquare = (rows == cols);
+    int isZero = 1, isIdentity = 1, isDiagonal = 1, isScalar = 1;
+    int isUpperTri = 1, isLowerTri = 1, isSym = 1, isSkewSym = 1;
+
+    
+    for(int i=0;i<rows;i++) {
+    	 for(int j=0;j<cols;j++) {
+            if(mat[i][j] != 0) isZero = 0;
+            if(i != j && mat[i][j] != 0) isDiagonal = 0;
+            if((i == j && mat[i][j] != 1) || (i != j && mat[i][j] != 0))
+                isIdentity = 0;
+            if(i != j && mat[i][j] != 0) isScalar = 0;
+            if(i > j && mat[i][j] != 0) isUpperTri = 0;
+            if(i < j && mat[i][j] != 0) isLowerTri = 0;
+            if(isSquare && mat[i][j] != mat[j][i]) isSym = 0;
+            if(isSquare && mat[i][j] != -mat[j][i]) isSkewSym = 0;
+              }
+    }
+
+   
+    int det = 0;
+    if(isSquare && rows == 3) {
+        det = mat[0][0]*(mat[1][1]*mat[2][2]-mat[1][2]*mat[2][1])
+            - mat[0][1]*(mat[1][0]*mat[2][2]-mat[1][2]*mat[2][0])
+            + mat[0][2]*(mat[1][0]*mat[2][1]-mat[1][1]*mat[2][0]);
+    }
+
+    
+    printf("\nMatrix Types:\n");
+    if(isSquare) printf("Square Matrix\n");
+    else printf("Rectangular Matrix\n");
+    if(isZero) printf("Zero Matrix\n");
+    if(isIdentity) printf("Identity Matrix\n");
+    if(isDiagonal) printf("Diagonal Matrix\n");
+    if(isScalar && isDiagonal) printf("Scalar Matrix\n");
+    if(isUpperTri) printf("Upper Triangular Matrix\n");
+    if(isLowerTri) printf("Lower Triangular Matrix\n");
+    if(isSym) printf("Symmetric Matrix\n");
+    if(isSkewSym) printf("Skew-Symmetric Matrix\n");
+    if(isSquare && rows == 3) {
+        if(det == 0) printf("Singular Matrix\n");
+        else printf("Non-Singular Matrix\n");
+    }
+    if(rows == 1) printf("Row Matrix\n");
+    if(cols == 1) printf("Column Matrix\n");
+    if(isZero) printf("Null Matrix\n");
+
+    return 0;
+}
