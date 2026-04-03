@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+
+int basicAttack(int dmg, int hp) {
+    return hp - dmg;
+}
+
+int powerStrike(int dmg, int hp) {
+    return hp - (int)(dmg * 2.5);
+}
+
+int heal(int dmg, int hp) {
+    return hp + 20; 
+}
+
+int poisonAttack(int dmg, int hp) {
+    printf("Poison effect applied!\n");
+    return hp - (dmg / 2);
+}
+
+int main() {
+    int hp = 100, dmg = 25;
+    int choice;
+    int (*action)(int, int);
+
+    for(int turn = 1; turn <= 3; turn++) {
+        printf("\nTurn %d - Choose action:\n", turn);
+        printf("1. Basic Attack\n2. Power Strike\n3. Heal\n4. Poison Attack\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
+
+        switch(choice) {
+            case 1: action = basicAttack; break;
+            case 2: action = powerStrike; break;
+            case 3: action = heal; break;
+            case 4: action = poisonAttack; break;
+            default: 
+                printf("Invalid choice, defaulting to Basic Attack.\n");
+                action = basicAttack;
+        }
+
+        hp = action(dmg, hp);
+        printf("HP after action: %d\n", hp);
+    }
+
+    return 0;
+}
