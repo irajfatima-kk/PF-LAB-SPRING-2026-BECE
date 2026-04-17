@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char master[]="secure123";
+    char input[50];
+    int attempts=0;
+    while(attempts<3) {
+        scanf("%s", input);
+        if(strlen(input)==0) {printf("Empty password\n"); attempts++; continue;}
+        if(strcmp(master,input)==0) {printf("Access Granted\n"); return 0;}
+        else {
+            if(attempts==1) printf("Hint: %.3s\n", master);
+            if(strcmp(input,master)<0) printf("Input before master\n");
+            else printf("Input after master\n");
+        }
+        attempts++;
+    }
+    printf("Locked Out\n");
+    return 0;
+}
