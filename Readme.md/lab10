@@ -1,0 +1,21 @@
+# Programming Fundamentals - Lab 10
+
+This repository contains solutions for **Lab 10** of CL1002 Programming Fundamentals at FAST-NUCES (Spring 2026).  
+The lab covers three major objectives:
+
+1. **String Library Functions**  
+   - Student Name Validator  
+   - Password Strength Checker  
+   - Email Formatter & Domain Extractor  
+
+2. **2D Character Arrays**  
+   - Classroom Roll Call System  
+   - Word Frequency Counter  
+
+3. **File Handling in C**  
+   - Student Grade Logger  
+   - Inventory Log Appender  
+   - Survey Result Processor  
+   - Configuration File Reader  
+   - Student Report Card Generator  
+
