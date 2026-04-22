@@ -1,0 +1,11 @@
+This lab covers:
+- Recursion (Tower Power Bill, Password Strength Checker, Maze Escape)
+- Structures (Patient Registry, Course Catalog with Nested Structures, E-Commerce Order Tracker)
+
+## Files
+- Q1_TowerPower.c
+- Q2_PasswordChecker.c
+- Q3_MazeEscape.c
+- Q4_PatientRegistry.c
+- Q5_CourseCatalog.c
+- Q6_OrderTracker.c
